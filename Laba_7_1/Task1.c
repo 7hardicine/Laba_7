@@ -1,10 +1,12 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 #include <Windows.h>
 #include <locale.h>
 #define MAX_SIZE 50
+
+// Вариант 10.
+// Использовать статический массив.
+// Вычислить произведение элементов, небольших заданного F и расположенных в строках с нечетными номерами.
 
 void main()
 {
@@ -21,7 +23,7 @@ void main()
 	while (scanf("%d %d", &row, &col) != 2 || row < 1 || row > MAX_SIZE || col < 1 || col > MAX_SIZE)
 	{
 		while (getchar() != '\n');
-		puts("Вы ввели что-то не так... Повторите ввод:");
+		puts("Вы ввели что-то не так... Возможно ваша матрица является одномерным массивом :)\nПовторите ввод:");
 	}
 
 	// Заполняем массив и проверяем данные
