@@ -1,4 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <Windows.h>
@@ -6,7 +5,7 @@
 
 // Вариант 10.
 // Использовать динамический массив
-// Заменить в матрице элементы предпоследней строки на  минимальные элементы соответствующих столбцов.
+// Заменить в матрице элементы предпоследней строки на минимальные элементы соответствующих столбцов.
 
 void main()
 {
@@ -17,7 +16,7 @@ void main()
 	int row, col;
 	
 	puts("Введите количество строк и столбцов матрицы:");
-	while (scanf("%d %d", &row, &col) != 2 || row < 2 || col < 2)
+	while (scanf_s("%d %d", &row, &col) != 2 || row < 2 || col < 2)
 	{
 		while (getchar() != '\n');
 		puts("Вы ввели что-то не так... Возможно ваша матрица является одномерным массивом :)\nПовторите ввод:");
@@ -35,15 +34,15 @@ void main()
 
 	for (int i = 0; i < row; i++)
 	{
-		printf("Введите %d - ю строку матрицы:\n", i + 1);
+		printf_s("Введите %d - ю строку матрицы:\n", i + 1);
 		for (int j = 0; j < col; j++)
 		{
-			printf("arr[%2d][%2d] = ", i + 1, j + 1);
-			while (scanf("%d", arr + i * col + j) != 1)
+			printf_s("arr[%2d][%2d] = ", i + 1, j + 1);
+			while (scanf_s("%d", arr + i * col + j) != 1)
 			{
 				while (getchar() != '\n');
 				puts("Вы ввели что-то не так... Повторите ввод:");
-				printf("arr[%2d][%2d] = ", i + 1, j + 1);
+				printf_s("arr[%2d][%2d] = ", i + 1, j + 1);
 			}
 		}
 	}
@@ -53,19 +52,17 @@ void main()
 	{
 		for (int j = 0; j < col; j++)
 		{
-			printf("%3d  ", *(arr + i * col + j));
+			printf_s("%3d ", *(arr + i * col + j));
 		}
 		puts("");
 	}
 
 	int pre_last = row - 2;
 	int min;
-	int j = 0;
 
-	for (j; j < col; j++);
+	for (int j = 0; j < col; j++)
 	{
 		min = *(arr + pre_last * col + j);
-		printf("arr = %d min = %d i = %d j = %d\n", *(arr + pre_last * col + j), min, i, j);
 		for (int i = 0; i < row; i++)
 		{
 			if (*(arr + i * col + j) < min)
@@ -81,7 +78,7 @@ void main()
 	{
 		for (int j = 0; j < col; j++)
 		{
-			printf("%3d  ", *(arr + i * col + j));
+			printf_s("%3d ", *(arr + i * col + j));
 		}
 		puts("");
 	}
